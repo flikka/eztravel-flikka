@@ -1,12 +1,36 @@
 <!doctype html>
 <html ng-app>
 <head>
-    <title> Hello World </title>
+    <title> Hello Handsome </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 </head>
 <body>
-    Your name: <input type="text" ng-model="name"></input>
-    <p ng-show="name">Hi, {{ name }}!</p>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.js">
+    <h1 ng-controller="userController">Reisedata for {{user}}</h1>
+    <div ng-controller="travelController">
+    <table class="table">
+      <tr ng-repeat="travel in travels">
+        <td>{{ travel.travelid }}</td>
+        <td>{{ travel.location }}</td>
+        <td>{{ travel.type }}</td>
+        <td>{{ travel.price }}</td>
+        <td>{{ travel.start }}</td>
+        <td>{{ travel.slutt }}</td>
+      </tr>
+    </table>
+    </div>
+    
+    <script>
+        function travelController($scope,$http) {
+          $http.get("https://node-simple-flikka.c9.io/travels/user/kflik@statoil.com")
+          .success(function(response) {$scope.travels = response;});
+        }
+        
+        function userController($scope,$http) {
+          $http.get("https://node-simple-flikka.c9.io/travels/currentuser/")
+          .success(function(response) {$scope.user = response;});
+        }
+        
     </script>
+    <script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
 </body>
 </html>
