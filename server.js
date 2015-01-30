@@ -10,8 +10,8 @@ app.set('port', process.env.PORT || 3000);
 
 app.get('/travels/currentuser/', function(req, res) {
     // Obtain user info from somewhere?
-    console.log(req.headers)
-    res.send("kflik@statoil.com" + "\n" + req.headers);
+    console.log(req.headers['x-iisnode-content_type']);
+    res.send("kflik@statoil.com" + "\n" + req.headers['x-iisnode-content_type']);
 });
 
 app.get('/travels/user/:name', function(req, res) {
