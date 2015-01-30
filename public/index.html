@@ -21,12 +21,12 @@
     
     <script>
         function travelController($scope,$http) {
-          $http.get("https://node-simple-flikka.c9.io/travels/user/kflik@statoil.com")
+          $http.get("/travels/user/kflik@statoil.com")
           .success(function(response) {$scope.travels = response;});
         }
         
         function userController($scope,$http) {
-          $http.get("https://node-simple-flikka.c9.io/travels/currentuser/")
+          $http.get("/travels/currentuser/")
           .success(function(response) {$scope.user = response;});
         }
         

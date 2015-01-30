@@ -1,7 +1,12 @@
-var express = require('express');
+var express = require('express')
+  , http = require('http');
+  
 var app = express();
 
 app.use('/', express.static(__dirname + '/public'));
+app.set('port', process.env.PORT || 3000);
+
+
 
 app.get('/travels/currentuser/', function(req, res) {
     // Obtain user info from somewhere?
@@ -30,4 +35,6 @@ app.get('/travels/user/:name', function(req, res) {
     }
 });
 
-app.listen(8080, function() { console.log('listening')});
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
