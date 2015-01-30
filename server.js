@@ -1,4 +1,4 @@
-var express = require('express')
+﻿var express = require('express')
   , http = require('http');
   
 var app = express();
@@ -10,7 +10,8 @@ app.set('port', process.env.PORT || 3000);
 
 app.get('/travels/currentuser/', function(req, res) {
     // Obtain user info from somewhere?
-    res.send("kflik@statoil.com");
+    console.log(req.headers)
+    res.send("kflik@statoil.com" + "\n" + req.headers);
 });
 
 app.get('/travels/user/:name', function(req, res) {
