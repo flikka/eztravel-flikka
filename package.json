@@ -1,5 +1,10 @@
 {
   "dependencies": {
-    "express": "3.1.0"
+    "passport": "0.1.x",
+    "passport-azure-ad": "0.0.x",
+    "node-waad": "~1.1.1",
+    "express": "3.1.0",
+    "ejs": "*",
+    "ejs-locals": "~1.0.2"
   }
 }

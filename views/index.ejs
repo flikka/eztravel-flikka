@@ -1,0 +1,25 @@
+<% layout('layout') -%>
+<% if (!user) { %>
+<h2>Welcome! Please log in, ye unknown traveller.</h2>
+<% } else { %>
+    <h2>Reisedata for  <%= user.givenName %>  <%= user.familyName %></h2>
+    <div ng-controller="travelController">
+    <table class="table">
+      <tr ng-repeat="travel in travels">
+        <td>{{ travel.travelid }}</td>
+        <td>{{ travel.location }}</td>
+        <td>{{ travel.type }}</td>
+        <td>{{ travel.price }}</td>
+        <td>{{ travel.start }}</td>
+        <td>{{ travel.slutt }}</td>
+      </tr>
+    </table>
+    </div>
+   
+    <script type="text/javascript">
+         function travelController($scope,$http) {
+             $http.get("/travels/").success(function(response) {$scope.travels = response;});
+         }
+    </script>
+    <script type="text/javascript" src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<% } %>
