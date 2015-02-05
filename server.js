@@ -11,9 +11,12 @@ var app = express();
 
 var config = {
   // required options
+  //identityMetadata: 'https://login.windows.net/3aa4a235-b6e2-48d5-9195-7fcf05b459b0/federationmetadata/2007-06/federationmetadata.xml',
+  //loginCallback: 'https://eztravel-flikka-flikka.c9.io/login/callback/',
+  //issuer: 'https://eztravel-flikka-flikka.c9.io/'
   identityMetadata: 'https://login.windows.net/3aa4a235-b6e2-48d5-9195-7fcf05b459b0/federationmetadata/2007-06/federationmetadata.xml',
-  loginCallback: 'https://eztravel-flikka-flikka.c9.io/login/callback/',
-  issuer: 'https://eztravel-flikka-flikka.c9.io/'
+  loginCallback: 'https://eztravel-flikka.azurewebsites.net/login/callback/',
+  issuer: 'https://eztravel-flikka.azurewebsites.net/'
 };
 
 // array to hold logged in users. State of the art.
